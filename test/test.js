@@ -1,8 +1,8 @@
-import {fetchData} from '../fetchData.js';
+import {fetchData} from '../http.js';
 
 import {getLevel} from '../index.js';
 
-jest.mock('../fetchData.js');
+jest.mock('../http.js');
 
  beforeEach(() => {
   jest.resetAllMocks();
@@ -15,10 +15,10 @@ test('Проверка формирования запроса', () => {
 		level: 10
     }     
 
-    fetchData.mockReturnValueOnce(resp);
+    fetchData.mockReturnValue(resp);
 
     getLevel(1);
-    expect(fetchData).toBecalledwith('https://server/user/1');
+    expect(fetchData).toBeCalledWith('https://server/user/1');
 })
 
 test('Проверка выдачи уровня', () => {

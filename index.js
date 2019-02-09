@@ -1,19 +1,10 @@
-import { fetchData } from './fetchData.js';
-
- /*  function fetchData (url) {
-	  const resp = {
-		status: 'ok',
-		level: 10
-	} 
-
-	return resp;
-}  */
+import { fetchData } from './http.js';
 
 export function getLevel(userId){
 	
 	const response = fetchData(`https://server/user/${userId}`);
 
-  if (response == 10) {
+  if (response.status == 'ok') {
     return `Ваш текущий уровень: ${response.level}`;
   }
 

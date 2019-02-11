@@ -1,3 +1,3 @@
-export const fetchData = (url) => {
+export default function fetchData(url) {
   throw new Error('Mock this');
 }
